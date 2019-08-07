@@ -1,6 +1,6 @@
 package com.featurespace.model;
 
-public class PostcodeStatusVlaidate
+public class PostcodeStatusValidate
 {
 	private Boolean result;
 	private Double status;

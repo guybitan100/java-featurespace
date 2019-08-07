@@ -1,233 +1,271 @@
+package com.featurespace.model;
+import com.google.gson.annotations.SerializedName;
 
-package com.att.eg.profile.mysubscriptions.info.model;
+public class Result
+{
+    @SerializedName("parliamentary_constituency") private String parliamentaryConstituency;
+    @SerializedName("admin_district") private String adminDistrict;
+    @SerializedName("admin_county") private String adminCounty;
+    @SerializedName("admin_ward") private String adminWard;
+    @SerializedName("nhs_ha") private String nhsHa;
+    @SerializedName("european_electoral_region") private String europeanElectoralRegion;
+    @SerializedName("primary_care_trust") private String primaryCareTrust;
+	private String postcode;
+	private Integer quality;
+	private Integer eastings;
+	private Integer northings;
+	private String country;
+	private Float longitude;
+	private Float latitude;
+	private String region;
+	private String lsoa;
+	private String msoa;
+	private String incode;
+	private String outcode;
+	private String parish;
+	private String ced;
+	private String ccg;
+	private String nuts;
+	private Codes codes;
 
+	public String getPostcode()
+	{
+		return postcode;
+	}
 
-public class Result {
+	public void setPostcode(String postcode)
+	{
+		this.postcode = postcode;
+	}
 
-    private String postcode;
-    private Integer quality;
-    private Integer eastings;
-    private Integer northings;
-    private String country;
-    private String nhsHa;
-    private Float longitude;
-    private Float latitude;
-    private String europeanElectoralRegion;
-    private String primaryCareTrust;
-    private String region;
-    private String lsoa;
-    private String msoa;
-    private String incode;
-    private String outcode;
-    private Float distance;
-    private String parliamentaryConstituency;
-    private String adminDistrict;
-    private String parish;
-    private String adminCounty;
-    private String adminWard;
-    private String ced;
-    private String ccg;
-    private String nuts;
-    private Codes codes;
+	public Integer getQuality()
+	{
+		return quality;
+	}
 
-    public String getPostcode() {
-        return postcode;
-    }
+	public void setQuality(Integer quality)
+	{
+		this.quality = quality;
+	}
 
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
+	public Integer getEastings()
+	{
+		return eastings;
+	}
 
-    public Integer getQuality() {
-        return quality;
-    }
+	public void setEastings(Integer eastings)
+	{
+		this.eastings = eastings;
+	}
 
-    public void setQuality(Integer quality) {
-        this.quality = quality;
-    }
+	public Integer getNorthings()
+	{
+		return northings;
+	}
 
-    public Integer getEastings() {
-        return eastings;
-    }
+	public void setNorthings(Integer northings)
+	{
+		this.northings = northings;
+	}
 
-    public void setEastings(Integer eastings) {
-        this.eastings = eastings;
-    }
+	public String getCountry()
+	{
+		return country;
+	}
 
-    public Integer getNorthings() {
-        return northings;
-    }
+	public void setCountry(String country)
+	{
+		this.country = country;
+	}
 
-    public void setNorthings(Integer northings) {
-        this.northings = northings;
-    }
+	public String getNhsHa()
+	{
+		return nhsHa;
+	}
 
-    public String getCountry() {
-        return country;
-    }
+	public void setNhsHa(String nhsHa)
+	{
+		this.nhsHa = nhsHa;
+	}
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+	public Float getLongitude()
+	{
+		return longitude;
+	}
 
-    public String getNhsHa() {
-        return nhsHa;
-    }
+	public void setLongitude(Float longitude)
+	{
+		this.longitude = longitude;
+	}
 
-    public void setNhsHa(String nhsHa) {
-        this.nhsHa = nhsHa;
-    }
+	public Float getLatitude()
+	{
+		return latitude;
+	}
 
-    public Float getLongitude() {
-        return longitude;
-    }
+	public void setLatitude(Float latitude)
+	{
+		this.latitude = latitude;
+	}
 
-    public void setLongitude(Float longitude) {
-        this.longitude = longitude;
-    }
+	public String getEuropeanElectoralRegion()
+	{
+		return europeanElectoralRegion;
+	}
 
-    public Float getLatitude() {
-        return latitude;
-    }
+	public void setEuropeanElectoralRegion(String europeanElectoralRegion)
+	{
+		this.europeanElectoralRegion = europeanElectoralRegion;
+	}
 
-    public void setLatitude(Float latitude) {
-        this.latitude = latitude;
-    }
+	public String getPrimaryCareTrust()
+	{
+		return primaryCareTrust;
+	}
 
-    public String getEuropeanElectoralRegion() {
-        return europeanElectoralRegion;
-    }
+	public void setPrimaryCareTrust(String primaryCareTrust)
+	{
+		this.primaryCareTrust = primaryCareTrust;
+	}
 
-    public void setEuropeanElectoralRegion(String europeanElectoralRegion) {
-        this.europeanElectoralRegion = europeanElectoralRegion;
-    }
+	public String getRegion()
+	{
+		return region;
+	}
 
-    public String getPrimaryCareTrust() {
-        return primaryCareTrust;
-    }
+	public void setRegion(String region)
+	{
+		this.region = region;
+	}
 
-    public void setPrimaryCareTrust(String primaryCareTrust) {
-        this.primaryCareTrust = primaryCareTrust;
-    }
+	public String getLsoa()
+	{
+		return lsoa;
+	}
 
-    public String getRegion() {
-        return region;
-    }
+	public void setLsoa(String lsoa)
+	{
+		this.lsoa = lsoa;
+	}
 
-    public void setRegion(String region) {
-        this.region = region;
-    }
+	public String getMsoa()
+	{
+		return msoa;
+	}
 
-    public String getLsoa() {
-        return lsoa;
-    }
+	public void setMsoa(String msoa)
+	{
+		this.msoa = msoa;
+	}
 
-    public void setLsoa(String lsoa) {
-        this.lsoa = lsoa;
-    }
+	public String getIncode()
+	{
+		return incode;
+	}
 
-    public String getMsoa() {
-        return msoa;
-    }
+	public void setIncode(String incode)
+	{
+		this.incode = incode;
+	}
 
-    public void setMsoa(String msoa) {
-        this.msoa = msoa;
-    }
+	public String getOutcode()
+	{
+		return outcode;
+	}
 
-    public String getIncode() {
-        return incode;
-    }
+	public void setOutcode(String outcode)
+	{
+		this.outcode = outcode;
+	}
 
-    public void setIncode(String incode) {
-        this.incode = incode;
-    }
+	public String getParliamentaryConstituency()
+	{
+		return parliamentaryConstituency;
+	}
 
-    public String getOutcode() {
-        return outcode;
-    }
+	public void setParliamentaryConstituency(String parliamentaryConstituency)
+	{
+		this.parliamentaryConstituency = parliamentaryConstituency;
+	}
 
-    public void setOutcode(String outcode) {
-        this.outcode = outcode;
-    }
+	public String getAdminDistrict()
+	{
+		return adminDistrict;
+	}
 
-    public Float getDistance() {
-        return distance;
-    }
+	public void setAdminDistrict(String adminDistrict)
+	{
+		this.adminDistrict = adminDistrict;
+	}
 
-    public void setDistance(Float distance) {
-        this.distance = distance;
-    }
+	public String getParish()
+	{
+		return parish;
+	}
 
-    public String getParliamentaryConstituency() {
-        return parliamentaryConstituency;
-    }
+	public void setParish(String parish)
+	{
+		this.parish = parish;
+	}
 
-    public void setParliamentaryConstituency(String parliamentaryConstituency) {
-        this.parliamentaryConstituency = parliamentaryConstituency;
-    }
+	public String getAdminCounty()
+	{
+		return adminCounty;
+	}
 
-    public String getAdminDistrict() {
-        return adminDistrict;
-    }
+	public void setAdminCounty(String adminCounty)
+	{
+		this.adminCounty = adminCounty;
+	}
 
-    public void setAdminDistrict(String adminDistrict) {
-        this.adminDistrict = adminDistrict;
-    }
+	public String getAdminWard()
+	{
+		return adminWard;
+	}
 
-    public String getParish() {
-        return parish;
-    }
+	public void setAdminWard(String adminWard)
+	{
+		this.adminWard = adminWard;
+	}
 
-    public void setParish(String parish) {
-        this.parish = parish;
-    }
+	public String getCed()
+	{
+		return ced;
+	}
 
-    public String getAdminCounty() {
-        return adminCounty;
-    }
+	public void setCed(String ced)
+	{
+		this.ced = ced;
+	}
 
-    public void setAdminCounty(String adminCounty) {
-        this.adminCounty = adminCounty;
-    }
+	public String getCcg()
+	{
+		return ccg;
+	}
 
-    public String getAdminWard() {
-        return adminWard;
-    }
+	public void setCcg(String ccg)
+	{
+		this.ccg = ccg;
+	}
 
-    public void setAdminWard(String adminWard) {
-        this.adminWard = adminWard;
-    }
+	public String getNuts()
+	{
+		return nuts;
+	}
 
-    public String getCed() {
-        return ced;
-    }
+	public void setNuts(String nuts)
+	{
+		this.nuts = nuts;
+	}
 
-    public void setCed(String ced) {
-        this.ced = ced;
-    }
+	public Codes getCodes()
+	{
+		return codes;
+	}
 
-    public String getCcg() {
-        return ccg;
-    }
-
-    public void setCcg(String ccg) {
-        this.ccg = ccg;
-    }
-
-    public String getNuts() {
-        return nuts;
-    }
-
-    public void setNuts(String nuts) {
-        this.nuts = nuts;
-    }
-
-    public Codes getCodes() {
-        return codes;
-    }
-
-    public void setCodes(Codes codes) {
-        this.codes = codes;
-    }
+	public void setCodes(Codes codes)
+	{
+		this.codes = codes;
+	}
 
 }

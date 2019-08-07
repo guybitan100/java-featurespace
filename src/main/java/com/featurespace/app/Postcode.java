@@ -1,12 +1,11 @@
 package com.featurespace.app;
 
 import com.featurespace.model.PostcodeStatus;
-import com.google.common.net.UrlEscapers;
+import com.featurespace.model.PostcodeStatusNearest;
+import com.featurespace.model.PostcodeStatusValidate;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 
-import org.apache.commons.codec.binary.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -16,34 +15,43 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
-public class PostcodeRetriever
+ class Postcode
 {
-	private final String baseUrl = "http://api.postcodes.io/postcodes/";
+	private static final String baseUrl = "http://api.postcodes.io/postcodes/";
 	private final String postcode;
 	private CloseableHttpClient httpclient;
+	private Gson gson;
 
-	public PostcodeRetriever(String postcode)
+	public Postcode(String postcode)
 	{
 		this.postcode = postcode;
+		this.gson = new GsonBuilder().create();
 		this.httpclient = HttpClients.createDefault();
 	}
 
-	public PostcodeStatus getPostCodeDetails()
+	public PostcodeStatus getDetails()
 	{
-		String output = String.format(baseUrl + "%s", postcode);
-
-		return executeGet(baseUrl + postcode);
+		String jsonString = executeGet(baseUrl + postcode);
+		return gson.fromJson(jsonString, PostcodeStatus.class);
 	}
 
-	public PostcodeStatus validatePostCode()
+	public PostcodeStatusValidate validate()
 	{
-		String output = String.format(baseUrl + "%s\\validate", postcode);
-		return executeGet(baseUrl + postcode);
+		String url = String.format(baseUrl + "%s/validate", postcode);
+		String jsonString = executeGet(url);
+		return gson.fromJson(jsonString, PostcodeStatusValidate.class);
 	}
 
-	private PostcodeStatus executeGet(String url)
+	public PostcodeStatusNearest getNearest()
 	{
-		PostcodeStatus postcodeStatus = null;
+		String url = String.format(baseUrl + "%s/nearest", postcode);
+		String jsonString = executeGet(url);
+		return gson.fromJson(jsonString, PostcodeStatusNearest.class);
+	}
+
+	private String executeGet(String url)
+	{
+		String jsonString = "";
 		try
 		{
 			HttpGet httpGet = new HttpGet(url);
@@ -51,20 +59,21 @@ public class PostcodeRetriever
 			try
 			{
 				HttpEntity entity = response.getEntity();
-				String jsonString = EntityUtils.toString(entity);
-				Gson gson = new GsonBuilder().create();
-				postcodeStatus = gson.fromJson(jsonString, PostcodeStatus.class);
+				jsonString = EntityUtils.toString(entity);
+
 			}
+
 			finally
 			{
 				response.close();
 			}
-
 		}
+
 		catch (IOException e)
 		{
 			System.out.println("Couldn't connect to: " + baseUrl);
 		}
-		return postcodeStatus;
+		return jsonString;
 	}
+
 }

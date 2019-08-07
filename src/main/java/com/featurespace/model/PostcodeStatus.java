@@ -1,28 +1,28 @@
-
 package com.featurespace.model;
 
-import java.util.List;
-
-public class Status
+public class PostcodeStatus
 {
+	private Result result;
+	private Integer status;
 
-    private Integer status;
-    private List<Result> result = null;
+	public Integer getStatus()
+	{
+		return status;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public void setStatus(Integer status)
+	{
+		this.status = status;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public Result getResult()
+	{
+		return result;
+	}
 
-    public List<Result> getResult() {
-        return result;
-    }
-
-    public void setResult(List<Result> result) {
-        this.result = result;
-    }
+	public void setResult(Result result)
+	{
+		this.result = result;
+	}
 
 }

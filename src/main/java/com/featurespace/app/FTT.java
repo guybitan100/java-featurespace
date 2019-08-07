@@ -1,43 +1,75 @@
 package com.featurespace.app;
 
+import com.featurespace.model.PostcodeStatus;
+import com.featurespace.model.PostcodeStatusNearest;
+import com.featurespace.model.PostcodeStatusValidate;
+import com.featurespace.model.Result;
+import com.google.common.net.UrlEscapers;
+
 import java.util.Scanner;
 
 class FTT
 {
 
-	public FTT(String a[])
+	public FTT()
 	{
-        Scanner sc = new Scanner(System.in);
-		while (sc.hasNext())
-		{
-			
-		}
+		readInput();
 	}
 
 	public static void main(String args[])
 	{
+		FTT application = new FTT();
 
-		FTT application = new FTT(args);
 	}
 
-	private void showHelp()
+	private void readInput()
 	{
-		System.out.println("FTT (featurespace test tool) - Show details by given UK postcode");
+		Scanner sc = new Scanner(System.in);
+		String selected = "";
+		while (!selected.equals("q"))
+		{
+			showMenu();
+			String postCode = sc.nextLine().trim();
+			String postCodeEncoded = UrlEscapers.urlFragmentEscaper().escape(postCode);
+			manageQueries(postCodeEncoded);
+		}
+		System.exit(1);
+	}
+
+	private void showMenu()
+	{
 		System.out.println("");
-		System.out.println("");
-		System.out.println("Usage:");
-		System.out.println("\t-v <postcode>, --validte <postcode>");
-		System.out.println("\t\tValidate the postcode parameter");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("\t-p <postcode>, --print <postcode>");
-		System.out.println("\t\tPrint the country and region for given postcode");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("\t-a <postcode>, --all <postcode>");
-		System.out.println("\t\tPrint a list of the nearest postcodes, and their countries and regions");
-		System.out.println("");
-		System.out.println("");
-		System.exit(1); //Exit and fail if you had to show this help
+		System.out.print("Please Enter you POSTCODE: ");
+	}
+
+	private void manageQueries(String postCodeString)
+	{
+		Postcode postcode = new Postcode(postCodeString);
+
+		PostcodeStatusValidate postcodeStatusValidate = postcode.validate();
+		if (postcodeStatusValidate.getResult())
+		{
+			PostcodeStatus postcodeStatus = postcode.getDetails();
+			Result result = postcodeStatus.getResult();
+			System.out.println("");
+			System.out.println("Region: " + result.getRegion());
+			System.out.println("Country: " + result.getCountry());
+			PostcodeStatusNearest postcodeStatusNearest = postcode.getNearest();
+			Result[] results = postcodeStatusNearest.getResult();
+			for (Result res : postcodeStatusNearest.getResult())
+			{
+				System.out.println("");
+				System.out.println("Nearest");
+				System.out.println("Postcode: " + result.getPostcode());
+				System.out.println("Region: " + result.getRegion());
+				System.out.println("Country: " + result.getCountry());
+			}
+
+		}
+		else
+		{
+			System.out.println("");
+			System.out.println("Invalid Postcode please enter again!!!");
+		}
 	}
 }

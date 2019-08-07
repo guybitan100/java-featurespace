@@ -1,8 +1,8 @@
 package com.featurespace.model;
 
-public class PostcodeStatus
+public class PostcodeStatusNearest
 {
-	private Result result;
+	private Result [] result;
 	private Integer status;
 
 	public Integer getStatus()
@@ -15,14 +15,13 @@ public class PostcodeStatus
 		this.status = status;
 	}
 
-	public Result getResult()
+	public Result[] getResult()
 	{
 		return result;
 	}
 
-	public void setResult(Result result)
+	public void setResult(Result[] result)
 	{
 		this.result = result;
 	}
-
 }
