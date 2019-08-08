@@ -8,7 +8,7 @@ import com.google.common.net.UrlEscapers;
 
 import java.util.Scanner;
 
-class FTT
+public class FTT
 {
 
 	public FTT()
@@ -30,8 +30,7 @@ class FTT
 		{
 			showMenu();
 			String postCode = sc.nextLine().trim();
-			String postCodeEncoded = UrlEscapers.urlFragmentEscaper().escape(postCode);
-			manageQueries(postCodeEncoded);
+			manageQueries(postCode);
 		}
 		System.exit(1);
 	}
@@ -42,12 +41,11 @@ class FTT
 		System.out.print("Please Enter you POSTCODE: ");
 	}
 
-	private void manageQueries(String postCodeString)
+	public void manageQueries(String postCodeString)
 	{
 		Postcode postcode = new Postcode(postCodeString);
-
-		PostcodeStatusValidate postcodeStatusValidate = postcode.validate();
-		if (postcodeStatusValidate.getResult())
+		PostcodeStatusValidate psv = postcode.validate();
+		if (psv.getResult())
 		{
 			PostcodeStatus postcodeStatus = postcode.getDetails();
 			Result result = postcodeStatus.getResult();

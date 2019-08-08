@@ -3,6 +3,7 @@ package com.featurespace.app;
 import com.featurespace.model.PostcodeStatus;
 import com.featurespace.model.PostcodeStatusNearest;
 import com.featurespace.model.PostcodeStatusValidate;
+import com.google.common.net.UrlEscapers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -15,16 +16,17 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
- class Postcode
+ public class Postcode
 {
 	private static final String baseUrl = "http://api.postcodes.io/postcodes/";
-	private final String postcode;
+	private String postcode;
 	private CloseableHttpClient httpclient;
 	private Gson gson;
 
 	public Postcode(String postcode)
 	{
-		this.postcode = postcode;
+		String postCodeEncoded = UrlEscapers.urlFragmentEscaper().escape(postcode);
+		this.postcode = postCodeEncoded;
 		this.gson = new GsonBuilder().create();
 		this.httpclient = HttpClients.createDefault();
 	}
@@ -75,5 +77,4 @@ import java.io.IOException;
 		}
 		return jsonString;
 	}
-
 }

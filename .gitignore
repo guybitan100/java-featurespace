@@ -4,3 +4,15 @@
 
 /.idea/.gitignore
 /.idea/vcs.xml
+/target/classes/com/featurespace/app/FTT.class
+/target/classes/com/featurespace/app/Postcode.class
+/target/classes/com/featurespace/model/Codes.class
+/target/classes/com/featurespace/model/PostcodeStatus.class
+/target/classes/com/featurespace/model/PostcodeStatusNearest.class
+/target/classes/com/featurespace/model/PostcodeStatusValidate.class
+/target/classes/com/featurespace/model/Result.class
+/target/classes/META-INF/featurespace.kotlin_module
+/target/test-classes/META-INF/featurespace.kotlin_module
+/target/test-classes/MokTests.class
+/target/test-classes/RealTests.class
+/target/classes/META-INF/featurespace.kotlin_module
