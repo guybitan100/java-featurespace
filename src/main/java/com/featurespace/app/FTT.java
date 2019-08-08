@@ -54,9 +54,9 @@ public class FTT
 			{
 				System.out.println("");
 				System.out.println("Nearest");
-				System.out.println("Postcode: " + result.getPostcode());
-				System.out.println("Region: " + result.getRegion());
-				System.out.println("Country: " + result.getCountry());
+				System.out.println("Postcode: " + res.getPostcode());
+				System.out.println("Region: " + res.getRegion());
+				System.out.println("Country: " + res.getCountry());
 			}
 
 		}
