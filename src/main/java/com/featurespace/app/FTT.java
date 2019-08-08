@@ -1,7 +1,5 @@
 package com.featurespace.app;
-
 import com.featurespace.model.PostcodeStatus;
-import com.featurespace.model.PostcodeStatusNearest;
 import com.featurespace.model.PostcodeStatusValidate;
 import com.featurespace.model.Result;
 
@@ -51,9 +49,8 @@ public class FTT
 			System.out.println("");
 			System.out.println("Region: " + result.getRegion());
 			System.out.println("Country: " + result.getCountry());
-			PostcodeStatusNearest postcodeStatusNearest = postcode.getNearest();
-			Result[] results = postcodeStatusNearest.getResult();
-			for (Result res : postcodeStatusNearest.getResult())
+			Result[] results = postcode.getNearest().getResult();
+			for (Result res : results)
 			{
 				System.out.println("");
 				System.out.println("Nearest");

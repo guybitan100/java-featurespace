@@ -14,9 +14,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-import java.io.IOException;
-
- public class Postcode
+public class Postcode
 {
 	private static final String baseUrl = "http://api.postcodes.io/postcodes/";
 	private String postcode;
@@ -33,27 +31,27 @@ import java.io.IOException;
 
 	public PostcodeStatus getDetails()
 	{
-		String jsonString = executeGet(baseUrl + postcode);
-		return gson.fromJson(jsonString, PostcodeStatus.class);
+		String jsonStr = executeGet(baseUrl + postcode);
+		return gson.fromJson(jsonStr, PostcodeStatus.class);
 	}
 
 	public PostcodeStatusValidate validate()
 	{
 		String url = String.format(baseUrl + "%s/validate", postcode);
-		String jsonString = executeGet(url);
-		return gson.fromJson(jsonString, PostcodeStatusValidate.class);
+		String jsonStr = executeGet(url);
+		return gson.fromJson(jsonStr, PostcodeStatusValidate.class);
 	}
 
 	public PostcodeStatusNearest getNearest()
 	{
 		String url = String.format(baseUrl + "%s/nearest", postcode);
-		String jsonString = executeGet(url);
-		return gson.fromJson(jsonString, PostcodeStatusNearest.class);
+		String jsonStr = executeGet(url);
+		return gson.fromJson(jsonStr, PostcodeStatusNearest.class);
 	}
 
 	private String executeGet(String url)
 	{
-		String jsonString = "";
+		String jsonStr = "";
 		try
 		{
 			HttpGet httpGet = new HttpGet(url);
@@ -61,7 +59,7 @@ import java.io.IOException;
 			try
 			{
 				HttpEntity entity = response.getEntity();
-				jsonString = EntityUtils.toString(entity);
+				jsonStr = EntityUtils.toString(entity);
 
 			}
 
@@ -75,6 +73,6 @@ import java.io.IOException;
 		{
 			System.out.println("Couldn't connect to: " + baseUrl);
 		}
-		return jsonString;
+		return jsonStr;
 	}
 }

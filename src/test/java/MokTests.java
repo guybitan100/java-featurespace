@@ -1,7 +1,5 @@
 import com.featurespace.app.Postcode;
 import com.featurespace.model.PostcodeStatusValidate;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
