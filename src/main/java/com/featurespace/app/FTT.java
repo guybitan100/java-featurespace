@@ -4,7 +4,6 @@ import com.featurespace.model.PostcodeStatus;
 import com.featurespace.model.PostcodeStatusNearest;
 import com.featurespace.model.PostcodeStatusValidate;
 import com.featurespace.model.Result;
-import com.google.common.net.UrlEscapers;
 
 import java.util.Scanner;
 

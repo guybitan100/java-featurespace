@@ -71,7 +71,7 @@ import java.io.IOException;
 			}
 		}
 
-		catch (IOException e)
+		catch (Exception e)
 		{
 			System.out.println("Couldn't connect to: " + baseUrl);
 		}
